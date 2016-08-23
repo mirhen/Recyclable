@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fVk-xd-rDT">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recyclable-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Recyclable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wjt-9A-jiC"/>
+                        <viewControllerLayoutGuide type="bottom" id="qzI-sl-u6h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PUb-0z-pvg">
+                                <rect key="frame" x="20" y="44" width="560" height="2"/>
+                            </progressView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NeE-gc-BWr">
+                                <rect key="frame" x="275" y="217" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Ag0-m6-lDs"/>
+                                    <constraint firstAttribute="height" constant="50" id="xRW-cf-u2p"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-AI-PMh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYv-Jh-Iqx">
+                                <rect key="frame" x="214" y="138" width="173" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="6or-3H-yyh"/>
+                                    <constraint firstAttribute="height" constant="173" id="yEL-kQ-sRS"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="2" height="1"/>
+                                <state key="normal" image="camera button.png">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.26936875910000002" green="1" blue="0.32681902959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qgx-DW-2wL"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Press the camera to see if your item is recyclable!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gT-ve-gho">
+                                <rect key="frame" x="165" y="40" width="271" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="HkZ-oA-hfH"/>
+                                    <constraint firstAttribute="width" constant="271" id="hPS-Wj-36Z"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dUj-CR-DD3">
+                                <rect key="frame" x="0.0" y="394" width="600" height="142"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="whatIdentifier" rowHeight="95" id="TLA-q3-Ult" customClass="MainTableViewCell" customModule="Recyclable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TLA-q3-Ult" id="XCj-oq-7Kh">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="94.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is recyclable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2K-iV-VFF">
+                                                    <rect key="frame" x="22" y="8" width="198" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="198" id="VWk-Ug-UHf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="i2K-iV-VFF" firstAttribute="leading" secondItem="XCj-oq-7Kh" secondAttribute="leadingMargin" constant="14" id="CWX-Ay-bwP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="i2K-iV-VFF" secondAttribute="bottom" constant="-1.5" id="DEe-rF-dWE"/>
+                                                <constraint firstItem="i2K-iV-VFF" firstAttribute="centerY" secondItem="XCj-oq-7Kh" secondAttribute="centerY" id="O0e-aM-ckC"/>
+                                                <constraint firstItem="i2K-iV-VFF" firstAttribute="top" secondItem="XCj-oq-7Kh" secondAttribute="topMargin" id="cli-aE-n7Y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.22352941176470589" green="0.55294117647058827" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="label" destination="i2K-iV-VFF" id="Dy3-Bu-5eq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="saveIdentifier" rowHeight="95" id="1cC-aC-cGf" customClass="MainTableViewCell" customModule="Recyclable" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123" width="600" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1cC-aC-cGf" id="kXA-Ba-mhA">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="94.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is recyclable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAM-KC-NHH">
+                                                    <rect key="frame" x="26" y="8" width="198" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="198" id="Jyt-Od-Zst"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HAM-KC-NHH" firstAttribute="centerY" secondItem="kXA-Ba-mhA" secondAttribute="centerY" id="KAj-mf-oEL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HAM-KC-NHH" secondAttribute="bottom" constant="14.5" id="Ndd-Pd-ipe"/>
+                                                <constraint firstItem="HAM-KC-NHH" firstAttribute="top" secondItem="kXA-Ba-mhA" secondAttribute="topMargin" id="WZ8-5e-anQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HAM-KC-NHH" secondAttribute="bottom" constant="20.5" id="elM-7I-OVr"/>
+                                                <constraint firstItem="HAM-KC-NHH" firstAttribute="leading" secondItem="kXA-Ba-mhA" secondAttribute="leadingMargin" constant="18" id="hKt-S0-FkK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.55294117649999996" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="label" destination="HAM-KC-NHH" id="PL2-43-7MB"/>
+                                            <segue destination="gHz-9L-y58" kind="show" identifier="savePush" id="fWT-u2-YgC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="TLH-ir-IXy"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o9z-7B-n7l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14901960784313725" green="0.47843137254901963" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dUj-CR-DD3" firstAttribute="leading" secondItem="1eT-AI-PMh" secondAttribute="leading" id="1ym-9m-ZSb"/>
+                            <constraint firstItem="uYv-Jh-Iqx" firstAttribute="top" secondItem="PUb-0z-pvg" secondAttribute="bottom" constant="92" id="279-Ls-ZiC"/>
+                            <constraint firstItem="dUj-CR-DD3" firstAttribute="bottom" secondItem="qzI-sl-u6h" secondAttribute="top" id="3RF-Az-Utl"/>
+                            <constraint firstItem="PUb-0z-pvg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5s3-ph-r0K"/>
+                            <constraint firstItem="NeE-gc-BWr" firstAttribute="centerX" secondItem="dUj-CR-DD3" secondAttribute="centerX" id="FOR-xM-4hN"/>
+                            <constraint firstItem="uYv-Jh-Iqx" firstAttribute="top" secondItem="9gT-ve-gho" secondAttribute="bottom" constant="23" id="LKZ-Vz-udF"/>
+                            <constraint firstItem="PUb-0z-pvg" firstAttribute="centerX" secondItem="NeE-gc-BWr" secondAttribute="centerX" id="NvM-JE-1ON"/>
+                            <constraint firstItem="PUb-0z-pvg" firstAttribute="centerX" secondItem="9gT-ve-gho" secondAttribute="centerX" id="OY0-g5-NQb"/>
+                            <constraint firstItem="PUb-0z-pvg" firstAttribute="top" secondItem="Wjt-9A-jiC" secondAttribute="bottom" constant="44" id="Wh7-aZ-Gtx"/>
+                            <constraint firstItem="dUj-CR-DD3" firstAttribute="trailing" secondItem="1eT-AI-PMh" secondAttribute="trailing" id="Ya8-K3-JeS"/>
+                            <constraint firstItem="1eT-AI-PMh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aar-rw-FN8"/>
+                            <constraint firstItem="1eT-AI-PMh" firstAttribute="top" secondItem="Wjt-9A-jiC" secondAttribute="bottom" id="bC6-8j-apU"/>
+                            <constraint firstItem="NeE-gc-BWr" firstAttribute="centerX" secondItem="uYv-Jh-Iqx" secondAttribute="centerX" id="hCq-DJ-H0u"/>
+                            <constraint firstItem="1eT-AI-PMh" firstAttribute="bottom" secondItem="qzI-sl-u6h" secondAttribute="top" id="pX2-oI-PGT"/>
+                            <constraint firstAttribute="trailing" secondItem="1eT-AI-PMh" secondAttribute="trailing" id="wRs-sQ-Rpz"/>
+                            <constraint firstItem="dUj-CR-DD3" firstAttribute="top" secondItem="uYv-Jh-Iqx" secondAttribute="bottom" constant="83" id="ymY-hn-YsB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recyclable" id="LD1-n9-pNQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Uet-es-1kd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="NeE-gc-BWr" id="2k1-dB-zOf"/>
+                        <outlet property="imageView" destination="1eT-AI-PMh" id="W0k-cf-TWi"/>
+                        <outlet property="label" destination="9gT-ve-gho" id="mGK-eL-ofc"/>
+                        <outlet property="progressView" destination="PUb-0z-pvg" id="mLf-qA-DcA"/>
+                        <outlet property="tableView" destination="dUj-CR-DD3" id="Cgq-ne-r6S"/>
+                        <outlet property="takePictureButton" destination="uYv-Jh-Iqx" id="dG3-4z-sPm"/>
+                        <segue destination="8BX-lg-YXf" kind="show" identifier="ShowRecyclable" id="gyr-JE-QSD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="682" y="445"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="r2c-xv-xVy">
+            <objects>
+                <viewController title="Results" id="8BX-lg-YXf" customClass="RecyclableViewController" customModule="Recyclable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JpO-Nh-RWW"/>
+                        <viewControllerLayoutGuide type="bottom" id="nB8-Nw-op8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="15D-Cj-Bpl">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu0-QW-iXW">
+                                <rect key="frame" x="0.0" y="378" width="600" height="158"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1CE72F43-F5C4-4EE2-838C-635866D18B12" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-CT-6XG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="446"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2016-07-03 at 8.09.23 PM.png" translatesAutoresizingMaskIntoConstraints="NO" id="VJz-UM-x5Q">
+                                <rect key="frame" x="0.0" y="378" width="600" height="158"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZIO-CT-6XG" secondAttribute="trailing" id="2RT-Sg-mxn"/>
+                            <constraint firstItem="nB8-Nw-op8" firstAttribute="top" secondItem="ZIO-CT-6XG" secondAttribute="bottom" constant="90" id="BbM-Tv-bAI"/>
+                            <constraint firstItem="eu0-QW-iXW" firstAttribute="bottom" secondItem="nB8-Nw-op8" secondAttribute="top" id="JQK-iO-8kQ"/>
+                            <constraint firstItem="ZIO-CT-6XG" firstAttribute="trailing" secondItem="eu0-QW-iXW" secondAttribute="trailing" id="Q7z-cE-kyY"/>
+                            <constraint firstItem="ZIO-CT-6XG" firstAttribute="top" secondItem="JpO-Nh-RWW" secondAttribute="bottom" id="VhL-Ny-oP8"/>
+                            <constraint firstItem="ZIO-CT-6XG" firstAttribute="leading" secondItem="15D-Cj-Bpl" secondAttribute="leading" id="ado-58-Lo0"/>
+                            <constraint firstItem="eu0-QW-iXW" firstAttribute="top" secondItem="JpO-Nh-RWW" secondAttribute="bottom" constant="378" id="gJz-Zl-P9R"/>
+                            <constraint firstItem="VJz-UM-x5Q" firstAttribute="leading" secondItem="eu0-QW-iXW" secondAttribute="leading" id="lYr-oD-Xu4"/>
+                            <constraint firstItem="ZIO-CT-6XG" firstAttribute="leading" secondItem="eu0-QW-iXW" secondAttribute="leading" id="oUf-7s-iU1"/>
+                            <constraint firstItem="VJz-UM-x5Q" firstAttribute="top" secondItem="eu0-QW-iXW" secondAttribute="top" id="p68-cn-ajc"/>
+                            <constraint firstItem="VJz-UM-x5Q" firstAttribute="bottom" secondItem="nB8-Nw-op8" secondAttribute="top" id="qFJ-jK-6j2"/>
+                            <constraint firstItem="VJz-UM-x5Q" firstAttribute="trailing" secondItem="eu0-QW-iXW" secondAttribute="trailing" id="vjf-Am-VHp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ZIO-CT-6XG" id="7CZ-a6-YHN"/>
+                        <outlet property="label" destination="eu0-QW-iXW" id="NiS-ZV-Oqx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHQ-VF-6hU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1347" y="445"/>
+        </scene>
+        <!--Save Our Planet View Controller-->
+        <scene sceneID="jMu-EL-1kO">
+            <objects>
+                <viewController id="gHz-9L-y58" customClass="SaveOurPlanetViewController" customModule="Recyclable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="psn-cL-hjJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="JOM-D1-e1G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y2e-0B-Bqs">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t21-Fz-pAA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="q9T-Og-L1T">
+                                <rect key="frame" x="265" y="233" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="5DF-qd-4rp"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q9T-Og-L1T" firstAttribute="top" secondItem="psn-cL-hjJ" secondAttribute="bottom" constant="233" id="DNv-AK-n2u"/>
+                            <constraint firstItem="t21-Fz-pAA" firstAttribute="centerX" secondItem="q9T-Og-L1T" secondAttribute="centerX" id="Ksw-Bf-GUE"/>
+                            <constraint firstItem="t21-Fz-pAA" firstAttribute="bottom" secondItem="JOM-D1-e1G" secondAttribute="top" id="Tlf-K7-4H1"/>
+                            <constraint firstItem="t21-Fz-pAA" firstAttribute="centerY" secondItem="q9T-Og-L1T" secondAttribute="centerY" id="WXv-Xg-yJ5"/>
+                            <constraint firstItem="t21-Fz-pAA" firstAttribute="leading" secondItem="y2e-0B-Bqs" secondAttribute="leading" id="Wmf-cG-LXD"/>
+                            <constraint firstItem="t21-Fz-pAA" firstAttribute="top" secondItem="psn-cL-hjJ" secondAttribute="bottom" id="grl-Xn-6wy"/>
+                            <constraint firstAttribute="trailing" secondItem="t21-Fz-pAA" secondAttribute="trailing" id="qh1-nn-zif"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="q9T-Og-L1T" id="eHQ-Jo-AKr"/>
+                        <outlet property="webView" destination="t21-Fz-pAA" id="Cv9-RM-I8M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHH-GU-qYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1347" y="1154"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JFv-QU-OQ9">
+            <objects>
+                <navigationController id="fVk-xd-rDT" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <navigationBar key="navigationBar" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="70" translucent="NO" id="9Bh-Tm-8B3" customClass="TallBar" customModule="Recyclable" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="25" right="8"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="35"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2m5-Vx-Hz0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJa-mD-MN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="429"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1CE72F43-F5C4-4EE2-838C-635866D18B12" width="76" height="76">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
+RkZSZXByZXNlbnRhdGlvboAGgAdPEWdOTU0AKgAAWkgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wABAICAAgCqVQNAgEAEQL9ABEC/gARAv4AE
+QL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AE
+QL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AE
+QL+ABEC/gARAv4AEQL+ABEC/QARAgEAEAKpVAwCAgAIA/wABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+AAkC/QAQAgIACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAJAv0AEAP+AAgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAqlUDAP8AAQAAAAAAAAAAAAAAAC65XQsrsVwkJ61fOyetX04orV5a
+Jq1eaiivX3Mnrl51J61ddietXXYnr192Jq5eeCeuXncnrl53JqxeeCeuXncnrl53J65edyeuXncnrl53
+J65edyeuXncnsF53J65edyeuXncnrl53J65edyeuXncnrl53J65edyeuXncnrl53J65edyeuXncnrl53
+J69fdieuXnUnrV12J65edSivX3MmrV5qJ65cWyetX04msFw9KK5eJiexYg0AAAAAAAAAAAAAAAAAAAAA
+AKpVAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAD/AAEAgIACAAAAAAAAAAAotF8zJ7FgfSewXrwnrl/kJq5d+iizYf8pt2P/
+Kbhk/yq6ZP8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/
+Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/
+Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpk/yq4ZP8pt2P/KLNh/yeuXvsor17lKLBgvyiwX4EpsmA4
+AAAAAAAAAAAA//8BAICAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACqVQMAAAAAAAAAACexX04osmDBKLFg/yq6Zf8pt2P/KLJg/yevX/8nrV3+
+J65e/CauXvwmrV77Jq1e+yatXvsmrV77Jq1e+yatXvsmrV77Jq1e+yatXvsmrV37Jq1e+yatXvsmrV77
+Jq1e+yatXvsmrV77Jq1e+yatXfsmrV77Jq1e+yatXvsmrV77Jq1e+yatXvsmrV77J61e+yetXvsnrV77
+J61e+yetXvsnrV77J61e+yetXvsnrV77J61e+yetXvsnrl78J65e/CetXf4nr17/KLJg/ym3Y/8qumX/
+KLJg/yezYcYnsWBVAAAAAAAAAAAAqlUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACqVQMAAAAAIaZZFymzYKopt2P/KbZj/yetXv4mrV37J65e/CeuXf0nrl7+
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/ietXf4nrl78
+Jq1d+yetXv4ptmL/Kbhk/yizX7Irql4eAAAAAFWqVQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAFWqVQMAAAAAJqhbNSeyYOAqumT/J65e/CeuXvwnrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J61d/SatXvwpuWT/KbNg5iWpWj4AAAAAQIBABAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACqVQMAAAAAJaxdNyizYPAptWL/Jqxd+yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Jq1d+yizYf8otGH2JqtbQwAAAAAAqlUDAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACAgAIAAAABK6peHiexX+ootGH/Jq1d/CeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8mrV78KLJh/yizYPAnsVwnAAAAAACAgAIAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA/4ACAICAAietXMApuWT/Jq1d+yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yatXvwpt2P/J65ezyS2bQcA/4AC
+AP8AAQAAAAAAAAAAAAAAAAAAAABVqlUDAAAAACivXWYqu2X/Jq1d+yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Jqxd+yq8Zv8orV1z
+AAAAAFWqVQMAAAAAAAAAAAAAAAAAAAABAP8AASuqVQwnrV7iKLNh/ieuXf0nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv0osmD9
+J65d6i20WhEAAAABAP8AAQAAAAAAAAAAQL9ABAAAAAAprmBYKrlk/yatXvwnrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+Jq1e+yq6Zf8mrF5sAAAAAEC/QAQAAAAAAAAAAFWqVQMAAAAAJ65eqSq5ZP4mrV77J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXvwpt2P+Jq5dvgAAAAAAgIACAAAAAAD/AAEAAAAAHKpVCSeuXuMosmD/J65d/SeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrV7+KLFf/yetXe8orl4TAAAAAAD//wEA/4ACAAAAACauXC8nr1/+J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/KK5e/yiuX/8orl//KK5f/yiuX/8orl//
+KK5f/yiuX/8orl//KK5f/yiuX/8orl//KK5f/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yetXf4osmD/KK5eOQAAAAAAqlUDQIBABAAAAAAmrV5RKbdj/yeuXvwnrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/yauXf8jrFv/I61b/yOtW/8jrVv/
+I61b/yOtW/8jrVv/I61b/yOtW/8jrVv/I61b/yOtW/8jrFv/J65e/yqvYP8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8mrl78Kblk/yevXlwAAAAAQL9ABEC/gAQAAAAAJq5fcSq6Zf8mrV77
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Ka9g/xqpVf8pr2D/N7Rq/za0af83tGr/
+N7Rq/ze0av83tGr/N7Rq/ze0av83tGr/N7Rq/ze0av82tGn/N7Rq/yeuXv8bqlX/Kq9g/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Jq1d+yq6Zf8orV56AAAAAEC/gARAv4AEAAAAACiuXocqumX/
+Jq1d+yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8orl//Ka9f/xqpVP9yypb/2vHj/+348v/u+fP/
+7/nz/+/58//v+fP/7/nz/+/58//v+fP/7/nz/+/58//v+fP/7vnz/+348f/U79//ZsaN/xmpVP8qr2D/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yatXfsqumX/KK5ejQAAAABAv4AEQL+ABAAAAAAnrV6W
+Krpk/yatXvsnrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8orl7/Ka9f/xqpVP+U16//////////////////
+//////////////////////////////////////////////////////////////////////////+D0KP/
+GKhS/yqvYP8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8mrV77Krpk/yiuXaEAAAAAQL9ABEC/QAQAAAAA
+J65coyq5ZP8mrV77J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yqvYP8qr2D/Kq9g/yqvYP8qr2D/J65e/yeuXv8nrl7/Kq9g/xipU/+W2LH////////////R7t3/
+YsSK/1/DiP9hxIn/YMOI/2DDiP9gw4j/YMOI/2DDiP9gw4j/YMOI/2HEif9ew4f/aseQ/9/z5///////
+/////4PQo/8XqFL/K69h/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Jq5e/Cm4ZP8nrV+vAAAAAACqVQNVqlUD
+AAAAACetX68puWT/Jq5e/CeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yiuXv8cqlb/GKhT/xipU/8YqFP/GalU/yauXf8nrl7/K69h/xeoUv+I06f////////////L7Nn/
+K69h/xioU/8cqlb/G6pV/xuqVf8bqlX/G6pV/xuqVf8bqlX/G6pV/xuqVf8bqlX/HapX/xWnUf85tWv/
+4fTp////////////d8ya/xaoUv8rr2H/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yauXvwpuGT/JqxeswAAAAAAqlUD
+AKpVAwAAAAAlrl6xKbhk/yauXvwnrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8orl//
+Kq9g/yuwYf8mrV3/iNKm/6fevv+l3bz/p969/53atv8ysmb/K69h/xeoUv91y5j////////////W8OH/
+LrBj/yGsWv8ssGL/Ka9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/ymvYP8ssGL/
+HKpW/0W5df/v+fP///////3+/f9kxYz/GKhT/y2wY/8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/
+Kq9g/yqvYP8orl//J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbhj/yevXrUAAAAA
+AKpVAwCqVQMAAAAAJqxesym4Y/8mrl78J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/
+I6xb/xqpVf8bqlX/EKVN/9Lu3f/////////////////7/fv/Ka9g/w2kSv9jxYv//P79///////j9er/
+OLVr/yCrWP8qr2D/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yuwYf8ZqVT/XMKF//v9/P//////9fv4/1K+fv8Rpk7/G6lV/xmpU/8ZqVP/GalT/xmpU/8ZqVP/
+GalT/xmpU/8aqVX/I61b/yqvYP8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm4Y/8nrl23
+AAAAAACqVQMAqlUDAAAAACasXrMpuGP/Jq5e/CeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8orl//
+GqlU/zi0a/9oxo//dMuX/23Ikv/Z8eL/+v37//j9+f/6/fv/8Pr0/3nNm/96zZz/8vr1///////v+fP/
+Rrp1/x2qVv8rr2H/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/K7Bh/xeoUv91y5j////////////p9+//dcuY/3LKlv9zy5f/c8qX/3PKl/9zypf/
+c8qX/3LKlv9zy5f/aMaP/zWzaf8bqlX/Ka9f/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXvwpuGP/
+Ja9euAAAAAAAqlUDAKpVAwAAAAAmrF6zKbhj/yauXvwnrl7/J65e/yeuXv8nrl7/J65e/yeuXv8orl//
+HqtY/4fSpf/s+PH/////////////////////////////////////////////////////////////////
+YsSK/xioU/8rsGH/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8rr2H/F6hS/4zUqv//////////////////////////////////////
+///////////////////////////p9+//cMmV/xyqVv8pr2D/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78
+Kbhj/yauXboAAAAAAKpVAwCqVQMAAAAAKK5etCm4Y/8mrl78J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/
+GqlU/4rTqP////////////r9+//f8+f/3fLm/+Dz6P/g9Oj/4PPo/+D06P/g8+j/3fLm/9zy5f/d8ub/
+fs+f/xqpVP8rr2H/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/ymvX/8bqVX/k9ev/9/z5//c8uX/3vPm/93y5v/d8ub/
+3fLm/93y5v/d8ub/3fLm/97z5//7/fz///////////9WwIH/HatX/ymvYP8nrl7/J65e/yeuXv8nrl7/
+J65e/Cm4Y/8mrl26AAAAAACqVQMAqlUDAAAAACevXrUpuGP/J65e/CeuXv8nrl7/J65e/yeuXv8orl//
+I6xb/zq1bP/0+/f//v/+/8Ho0f9BuHH/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/
+Ka9f/x6qV/8or1//J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/Kq9g/yqvYP8rr2H/Kq9h/yuvYf8qr2D/
+KK5e/yivX/8pr1//J65e/yeuXv8nrl7/J65e/yeuXv8orl7/J65e/x6qV/8pr2D/Ka9f/ymvX/8qr2D/
+Kq9g/yqvYP8qr2D/Kq9g/yqvYP8or1//TLx6/9/z5///////uuXM/xuqVf8qr2D/J65e/yeuXv8nrl7/
+J65e/yeuXvwpuGP/Jq5dugAAAAAAqlUDAKpVAwAAAAAnr161Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/
+Kq9g/xuqVf9fw4j///////j8+v9At3H/F6hS/yiuX/8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/
+Jq5d/yauXf8pr2D/J65e/yeuXv8nrl7/J65e/yiuXv8nrl7/G6lV/xuqVf8cqlb/HKpW/xyqVv8bqlX/
+H6tY/y6xY/8irFr/H6tY/yiuX/8orl7/J65e/yeuXv8nrl7/J65e/yeuXv8pr1//KK5e/yqvYP8pr2D/
+Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Ka9g/w+lTP+J06f//////9nx4/8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl78Kbhj/yauXboAAAAAAKpVAwCqVQMAAAAAJ69etSm4Y/8nrl78J65e/yeuXv8nrl7/
+J65e/yqvYP8bqlX/X8OI//7////u+fL/NrRp/yWtXf8orl//KK5e/yiuXv8orl7/KK5e/yiuXv8orl7/
+KK5e/yiuXv8nrl7/J65e/yeuXv8nrl7/J65e/yiuXv8mrl7/Jq5d/4XRpP+148j/tOPH/7bjyP+148j/
+t+TK/7DhxP9Lu3n/Prdv/069e/8mrl3/Jq5d/yiuXv8nrl7/J65e/yeuXv8qr2H/GqlV/3HJlf/g8+j/
+xurU/yywYv8mrV7/KK5e/yiuXv8orl7/KK5e/yqvYP8aqVT/es2b///////Z8eP/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/Cm4Y/8mrl26AAAAAACqVQMAqlUDAAAAACevXrUpuGP/J65e/CeuXv8nrl7/
+J65e/yeuXv8qr2D/G6pV/1/DiP//////7/nz/zi0av8jrFv/KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/HKpV/6Tdu///////////////////////
+//////////9kxYv/ndq2//b8+P//////reDC/x6rV/8pr2D/Ka9f/yiuXv8nrl7/Kq9h/xanUv+G0aT/
+//////X79/8tsGL/Ja1d/yiuXv8nrl7/J65e/yeuXv8qr2D/GKhT/3zNnP//////2fHj/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXvwpuGP/Jq5fugAAAAAA/4ACAKpVAwAAAAAnrFy2Kbhj/yeuXvwnrl7/
+J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j//////+/58/83tGr/I6xb/yiuX/8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/HKpW/13Chv//////+/38//v+/P/8/v3/
++v37//////92zJn/iNKm/////////////f79//////90y5f/GalU/yWtXP8lrVz/KK5e/yiuX/8hrFr/
+Srt4/4DPoP90y5f/Ka9g/yauXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xioU/97zZz//////9nx4/8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbhj/yauX7oAAAAAAP+AAgCqVQMAAAAAJ6xctim4Y/8nrl78
+J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/X8OI///////v+fP/N7Rq/yOsW/8orl//J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yGsWv/Q7dz///////3+/f//////
+/f79///////S7t3/U79////////7/vz//v/+//3+/v/9/v7/7vnz/zm1bP9FuXT/PLZt/yOtW/8orl7/
+KK5f/yGsWv8YqFP/GqlU/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yqvYP8YqFP/e82c///////Z8eP/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm3Y/8orV67AAAAAAD/gAIAqlUDAAAAACesXLYpuGP/
+J65e/CeuXv8nrl7/J65e/yeuXv8qr2D/G6pV/1/DiP//////7/nz/ze0av8jrFv/KK5f/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xupVf95zZv///////z+/P//////
+//////3+/f//////ZMWL/zOzZ//x+vT//f7+//7//v///////v/////////k9ev/wejR/yuvYf8mrl7/
+KK5e/yeuXv8or1//Kq9h/yqvYP8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/GKhT/3vNnP//////
+2fHj/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXvwpt2P/KK1euwAAAAAA/4ACAKpVAwAAAAAnrFy2
+Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j//////+/58/83tGr/I6xb/yiuX/8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/KK5f/yiuX/8krVz/zeza////////////
+/P79//z+/f//////xenU/yGsWv8YqFL/iNKm///////8/v3////////////8/v3//////1/DiP8ZqVT/
+Kq9g/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xioU/97zZz/
+/////9nx4/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbdj/yitXrsAAAAAAP+AAgCqVQMAAAAA
+J6xctim4Y/8nrl78J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/X8OI///////v+fP/N7Rq/yOsW/8orl//
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/JK1c/yStXP8mrl3/Ja1c/zWzaP+X2LL/
+9Pv3///////+//7/+/79/1C9ff8eq1f/Kq9g/yKsWv/O7dr//v/+//z+/f/7/fz//////7nly/8cqlb/
+LLBi/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yqvYP8YqFP/
+e82c///////Z8eP/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm3Y/8orV67AAAAAAD/gAIAqlUD
+AAAAACesXLYpuGP/J65e/CeuXv8nrl7/J65e/yeuXv8qr2D/G6pV/1/DiP//////7/nz/ze0av8jrFv/
+KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/zi0a/8zs2f/LrFj/y+xZP8tsGP/
+GalT/0C3cP+p37///////6vfwf8YqFP/K7Bh/yatXf86tWz/x+rV//////////////////z+/f9PvXz/
+GqlU/yCsWf8lrVz/KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/
+GKhT/3vNnP//////2fHj/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXvwpt2P/J65evAAAAAAA/4AC
+AKpVAwAAAAAnrFy2Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j//////+/58/83tGr/
+I6xb/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Ka9f/yGsWv9jxYv/1O/f/+P16v/i9Or/
+6/fw/7fkyv8aqVT/GqlV/1nBg/89tm7/Iqxa/ymvX/8krVz/Trx7/2bGjf9cwob/XcKG/2PEiv9Vv4D/
+FadR/zi1a/+y4sb/csqW/xmpVP8qr2D/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+Kq9g/xioU/97zZz//////9nx4/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbdj/yeuXrwAAAAA
+AP+AAgCqVQMAAAAAJ65dtym4Y/8nrl78J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/X8OI///////v+fP/
+N7Rq/yOsW/8orl//J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/FadR/7Pjxv//////
+////////////////Y8WL/x+rWP8gq1n/I61b/yiuX/8nrl7/KK5f/yCrWf8bqVX/HKpW/x6qV/8Tpk//
+GKhT/3rNnP/q9/D//////+b27f8xsmb/JK1c/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yqvYP8YqFP/e82c///////Z8eP/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm3Y/8nrl68
+AAAAAAD/gAIAqlUDAAAAACeuXbcpuGP/J65e/CeuXv8nrl7/J65e/yeuXv8qr2D/G6pV/1/DiP//////
+7/nz/ze0av8jrFv/KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8pr1//IKxZ/0S5c//0+/f/
+/f79//3+/f/8/vz//v/+/9Dt3P8hrFr/Kq9g/yiuX/8nrl7/J65e/yeuXv8orl//Ka9g/yqvYP8nrl7/
+Vb+A/8fq1f////////////n9+///////pt69/xqpVP8qr2D/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8qr2D/GKhT/3vNnP//////2fHj/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXvwpt2P/
+J65evAAAAAAA/4ACAKpVAwAAAAAnrl23Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j/
+/////+/58/83tGr/I6xb/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xmpVP+k3bz/
+//////z+/f////////////z+/f//////fc6e/xqpVP8qr2D/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/
+GqlU/6/hxP//////+v37//7//v///////f79//3+/v9YwIL/HapX/ymvYP8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/Kq9g/xioU/97zZz//////9nx4/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78
+Kbdj/yeuXrwAAAAAAP+AAgCqVQMAAAAAJ65dtym4Y/8nrl78J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/
+X8OI///////v+fP/N7Rq/yOsW/8orl//J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/KK9f/yKsWv8/t2//
+9fv4//3+/v/+//7///////3+/f//////iNKm/3bMmf8xsmX/Ja1d/yeuXv8nrl7/J65e/yeuXv8nrl7/
+KK9f/yKsWv83tGr/7Pjx//7+/v/+/v7///////z+/f//////tePI/xyqVf8pr2D/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yqvYP8YqFP/e82c///////Z8eP/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/Cm3Y/8nrl68AAAAAAD/gAIAqlUDAAAAACWtXrgpuGP/J65e/CeuXv8nrl7/J65e/yeuXv8qr2D/
+G6pV/1/DiP//////7/nz/ze0av8jrFv/KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yiuX/8krVv/
+NbNo//H69P//////+/78//n9+///////x+rV/xqpVP8gq1n/Kq9h/yauXf8nrl7/J65e/yeuXv8nrl7/
+KK5f/ymvX/8qr2D/F6hS/3zOnf///////P79///////9/v7//v/+/9vy5P8mrl3/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/GKhT/3vNnP//////2fHj/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXvwpt2P/J65evQAAAAAA/4ACAKpVAwAAAAAlrV64Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/
+Kq9g/xuqVf9fw4j//////+/58/83tGr/I6xb/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+Ka9g/x2qV/9lxY3/5vbt/////////////////0y8ef8irFr/LbBj/yqvYP8ssGL/Ka9f/yeuXv8nrl7/
+KK5f/yauXf8qr2D/LbBi/y6xY/8lrVz/zeza///////9/v3//P79//////+i3Lr/GqlU/yqvYP8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xioU/97zZz//////9nx4/8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl78Kbdj/yeuXr0AAAAAAP+AAgCqVQMAAAAAJa1euCm4Y/8nrl78J65e/yeuXv8nrl7/
+J65e/yqvYP8bqlX/X8OI///////v+fP/N7Rq/yOsW/8orl//J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yiuX/8jrFv/Sbt3/2PFi/9uyZP/h9Kl/2LEiv8XqFL/IaxZ/x+rWP8dqlf/HapW/yStXP8orl7/
+KK5f/yCrWP9Ku3j/ZcWM/w2kS/8eq1f/EaZO/0O5c//8/vz//f79//7//v/y+vX/PbZu/yGsWf8pr1//
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yqvYP8YqFP/e82c///////Z8eP/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/Cm3Y/8nrl69AAAAAAD/gAIAqlUDAAAAACWtXrgpuGP/J65e/CeuXv8nrl7/
+J65e/yeuXv8qr2D/G6pV/1/DiP//////7/nz/ze0av8jrFv/KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8orl//I61b/zi0a//X8OH/vufO/7Lixf+45Mr/wunS/8Lo0f/B6NH/uuXL/7nly/9Uv3//
+HqtY/y2wYv8YqFL/ruHD/8/t2/+I0qb/l9iy/6XdvP9lxYz/kNWs////////////j9Ws/xeoUv8rr2H/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/GKhT/3vNnP//////2fHj/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXvwpt2P/J65evQAAAAAA/4ACAKpVAwAAAAAlrV64Kbhj/yeuXvwnrl7/
+J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j//////+/58/83tGr/I6xb/yiuX/8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yqvYf8WqFL/ec2b////////////////////////////////////////////
+bcmS/xyqVv8gq1n/Ub59//v9/P//////////////////////+P36/0m7d//o9u7/6Pfu/yqvYP8mrl3/
+KK5e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xioU/97zZz//////9nx4/8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbdj/yatXb4AAAAAAP+AAgCqVQMAAAAAJ65cuSm4Y/8nrl78
+J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/X8OI///////v+fP/N7Rq/yOsW/8orl//J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yKsW//T7t7//P79//r9+//8/v3//P79//z+/f/6/fv/
+/P79/2nHj/8cqlX/JK1c/8Tp0///////+/38//z+/P/8/v3/+f36//////+M1Kn/pd28/4LQov8Wp1H/
+Kq9g/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yqvYP8YqFP/e82c///////Z8eP/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm3Y/8mrV2+AAAAAAD/gAIAqlUDAAAAACeuXLkpuGP/
+J65e/CeuXv8nrl7/J65e/yeuXv8qr2D/G6pV/1/DiP//////7/nz/ze0av8jrFv/KK5f/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/ZMWL///////7/vz//v/+//7//v/+//7/
+/P78//7///9ryJH/EKVN/17Dh////////f79/////////////v////v+/P/8/v3/wejR/1a/gf8xsmX/
+Ja1c/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/GKhT/3vNnP//////
+2fHj/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXvwpt2P/Jq5dvgAAAAAAgIACAKpVAwAAAAAnrly5
+Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j//////+/58/83tGr/I6xb/yiuX/8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Ka9f/x2qV//D6dL/////////////////
+/////////v//////aseQ/xqpVP8usWP/0u7e///////8/v3//////////////////////6fevf8aqVX/
+Ka9g/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Kq9g/xioU/97zZz/
+/////9nx4/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbdj/yauXb4AAAAAAICAAgCqVQMAAAAA
+Ja1euCm4Y/8nrl78J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/X8OI///////v+fP/N7Rq/yOsW/8orl//
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/ymuX/8irFr/PbZu/8Xp1P/x+vT/
+9Pv3//j8+f/2+/j/+/38/2nHj/8dqlf/HqpX/1O/f//7/vz////////////6/fv/8vr1/9bv4P8/t3D/
+Iaxa/ymvX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yqvYP8YqFP/
+e82c///////Z8eP/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm3Y/8mrl2+AAAAAACAgAIAqlUD
+AAAAACeuXbcpuGP/J65e/CeuXv8nrl7/J65e/yeuXv8qr2D/G6pV/1/DiP//////7/nz/ze0av8jrFv/
+KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/KK9f/yKsWv8irFv/
+OrVt/z+3cP9CuHL/Q7hy/0a6df8ysmb/Ja1c/yuvYf8Vp1H/pt68/9Xv4P9FuXT/Sbt3/zy2bf8qr2D/
+Iqxa/yivX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8qr2D/
+GKhT/3vNnP//////2fHj/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXvwpt2P/Jq5dvgAAAAAAgIAC
+AKpVAwAAAAAnrl23Kbhj/yeuXvwnrl7/J65e/yeuXv8nrl7/Kq9g/xuqVf9fw4j//////+758v83tGr/
+JKxb/yiuX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8or1//
+KK5f/yKsW/8irFr/IaxZ/yGsWf8gq1n/Ja1c/yeuXv8orl//Iqxa/zy2bf94zJv/FadR/yKsWv8irFr/
+Jq5d/yivX/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+Kq9g/xmoU/96zZz//////9nx4/8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl78Kbdj/yeuXr0AAAAA
+AP+AAgCqVQMAAAAAJ6xctim4Y/8nrl78J65e/yeuXv8nrl7/J65e/yqvYP8bqlX/YcOJ///////2/Pj/
+ObVs/yKsW/8ssGL/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/
+Kq9g/yuvYf8rsGH/LLBh/yywYv8ssGL/LLBi/yuvYf8qr2D/Kq9g/yuwYf8orl//K7Bh/y2wY/8ssGL/
+K7Bh/yuvYf8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/Kq9g/yqvYP8qr2D/
+Kq9g/y+xZP8YqFP/gdCh///////a8eP/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/Cm3Y/8nrl68
+AAAAAAD/gAIAqlUDAAAAACasXrMpuGP/Jq5e/CeuXv8nrl7/J65e/yeuXv8or1//IaxZ/0S5c//6/fv/
+/v/+/5fYsf8Tp1D/GalU/xmpU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/
+GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqFP/GalU/xipU/8YqFP/
+GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/GKlT/xipU/8YqVP/
+GKlT/xmpVP8YqFP/G6lV/8bp1P/9/v7/xOnT/x6qV/8pr1//J65e/yeuXv8nrl7/J65e/yeuXvwpuGP/
+J65cuQAAAAAAqlUDAKpVAwAAAAAnrV+vKbhk/yauXvwnrl7/J65e/yeuXv8nrl7/J65e/ymvYP8bqVX/
+sOHE///////+/v7/tOPH/3fMmf95zZv/eMyb/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMmv94zJr/
+eMya/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMm/94zZv/
+eMya/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMmv94zJr/eMya/3jMmv94zJr/
+eMya/3jMm/95zZv/dsyY/7vlzP///////////3PLl/8aqVT/Kq9g/yeuXv8nrl7/J65e/yeuXv8nrl78
+Kbhj/yetXrUAAAAAAKpVA0C/QAQAAAAAJq5eoCq6ZP8mrV77J65e/yeuXv8nrl7/J65e/yeuXv8orl//
+JK1c/y6xZP/L69j/////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////7Hixf8grFn/KK5f/yeuXv8nrl7/J65e/yeuXv8nrl7/
+Jq5e/Cm5ZP8nrV2sAAAAAFWqVQNAv4AEAAAAACWuXpAqumX/Jq1d+yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/ymvX/8irFv/Ka9f/4fSpf/N7Nr/2/Hk/9vy5P/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/
+3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/
+3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/3PLl/9zy5f/c8uX/
+3PLl/9zy5f/c8uX/3PLl/9vy5P/a8eT/zeza/4LQov8jrVv/Ja1d/yiuX/8nrl7/J65e/yeuXv8nrl7/
+J65e/yatXvsqumT/J69elQAAAABAv4AEQL+ABAAAAAAnrV18Krpl/yatXfsnrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/Ka9f/yauXf8ZqVP/I6xb/ymvX/8or1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//
+Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//
+Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//Ka9f/ymvX/8pr1//
+Ka9f/ymvX/8pr1//Ka9f/ymvX/8or1//Ka9f/yKsW/8ZqVT/J65e/yiuX/8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8mrV37Krpl/yauXoUAAAAAQL+ABEC/QAQAAAAAKLBeWim4ZP8nrl78J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8orl7/Kq9g/yiuX/8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/
+Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/
+Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/
+Jq5d/yauXf8mrl3/Jq5d/yauXf8mrl3/Jq5d/yauXf8orl//Kq9g/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/Jq1e+yq5ZP8orV5nAAAAAEC/gAQAqlUDAAAAACStYDgosmD/J61d/ieuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXf0otWL/Jq1eRAAAAABVqlUDAP8AAQAAAAAiqmYPJ61d6yixYP8nrV7+
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv4nsF//J65e9iStWxwAAAAAAICAAgAAAAAA/4ACAAAAACevXrUpuGP+
+Jq5e/CeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl78KbZi/ieuXcoAAAABAP8AAQAAAAAAAAAAQL9ABAAAAAAor19m
+Krpk/yatXfwnrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/Jq1e+yq7Zf8orV95AAAAAEC/QAQAAAAAAAAAAAD/AAEAAAAA
+KK5eEyauXe0osmD9J65e/SeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J61e/iixX/0nrl/xK7VgGAAAAAAAgAACAAAAAAAAAAAAAAAA
+VapVAwAAAAAnrl51Krtl/yasXfsnrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yasXfsqvGb/J65fhAAAAABVqlUDAAAAAAAAAAAAAAAA
+AAAAAAD/AAEA/4ACK6pVBiatXs4pt2P/Jq1d/CeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yatXvwptWL/J69f3CSkWw4AgIACAP8AAQAAAAAAAAAA
+AAAAAAAAAAAAAAAAAP+AAgAAAAAqrF8rKLNg8iiyYP8nrl78J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yetXf0nsF/+KLJg+CesXTQAAAAAAP+AAgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAqlUDAAAAACatXkQntGH5KLNh/yatXfsnrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yatXvwosWD/KLRh/iWrXVIAAAAAAKpVAwAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAQAAAAAJapcRSizYekpuGP/Jq1d+yetXf0nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J61d/SatXfspt2P/KLNg8CeqXE4AAAAAQL9ABAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVapVAwAAAAAnql0hJ7JevSq5ZP8otWL/
+J61d/SatXvsnrV39J61e/ieuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/J65e/yeuXv8nrl7/
+J65e/yeuXv8nrl7/J61e/ietXf0mrV77J61d/Si0Yf8qumT/KLNexSSmWSsAAAAAAL9ABAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqlUDAAAAAAAAAAAnsWFc
+J7FfzSm2Yv8qumT/KbVi/yixYP8nrl7/J61d/SeuXvwmrV77Jq1e+yatXvsmrV37Jq1d+yatXfsmrV37
+Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37
+Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37Jq1d+yatXfsmrV37Jq1d+yatXvsmrV77
+Jq1e+yeuXvwnrV39J65e/yixX/8ptWL/Krpk/ym3Y/8os1/SJ7JfYwCAAAIAAAAAAKpVAwAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAIA/wAB
+AAAAAACAAAIos19GKLFglCawX8wnrl7uJ69f/ym1Yv8puGP/Krpk/yq6Zf8qumX/Krpl/yq6Zf8qumX/
+Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/
+Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/Krpl/yq6Zf8qumX/
+Krpl/yq6ZP8puGP/KbZi/yewX/8nrl7wKLFfziiyYJgosl5MAJlmBQAAAAAAAAAAAICAAgAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAFWqVQMAAAAAAAAAAAAAAAAAAAAAJKphFSexXi4prmBFJ69fViatXmomrl5yJ65edSauXngorV15
+KK1eeieuXXsnrl17J65deyeuXXsosF56J65deyeuXXsosF56J65deyitXnonrl17J65deyeuXXsnrl17
+J65deyeuXXsnrl17KLBeeieuXXsosF56J65deyitXnoosF56J65deyeuXXsosF56KLBeeiitXXkmrl54
+J61ddiauXnImrl1rJrBeVyivX0Ylr2AwI65dFgAAAAAAAAAAAAAAAAAAAABVqlUDAAAAAQAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAQCqVQNAv0AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIBABACqVQMAAAABAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8BAP+AAlWqVQNAv0AEQL+ABEC/gARAv4AE
+QL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AE
+QL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AEQL+ABEC/gARAv4AE
+QL+ABEC/gARAv4AEQL+ABEC/gARAv0AEVapVAwCqVQMA//8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4BAAADAAAAAQBMAAABAQADAAAAAQBM
+AAABAgADAAAABAAAWvYBAwADAAAAAQABAAABBgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQAB
+AAABFQADAAAAAQAEAAABFgADAAAAAQBMAAABFwAEAAAAAQAAWkABHAADAAAAAQABAAABUgADAAAAAQAC
+AAABUwADAAAABAAAWv6HcwAHAAAMSAAAWwYAAAAAAAgACAAIAAgAAQABAAEAAQAADEhMaW5vAhAAAG1u
+dHJSR0IgWFlaIAfOAAIACQAGADEAAGFjc3BNU0ZUAAAAAElFQyBzUkdCAAAAAAAAAAAAAAAAAAD21gAB
+AAAAANMtSFAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEWNw
+cnQAAAFQAAAAM2Rlc2MAAAGEAAAAbHd0cHQAAAHwAAAAFGJrcHQAAAIEAAAAFHJYWVoAAAIYAAAAFGdY
+WVoAAAIsAAAAFGJYWVoAAAJAAAAAFGRtbmQAAAJUAAAAcGRtZGQAAALEAAAAiHZ1ZWQAAANMAAAAhnZp
+ZXcAAAPUAAAAJGx1bWkAAAP4AAAAFG1lYXMAAAQMAAAAJHRlY2gAAAQwAAAADHJUUkMAAAQ8AAAIDGdU
+UkMAAAQ8AAAIDGJUUkMAAAQ8AAAIDHRleHQAAAAAQ29weXJpZ2h0IChjKSAxOTk4IEhld2xldHQtUGFj
+a2FyZCBDb21wYW55AABkZXNjAAAAAAAAABJzUkdCIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAAEnNSR0Ig
+SUVDNjE5NjYtMi4xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AABYWVogAAAAAAAA81EAAQAAAAEWzFhZWiAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAG+iAAA49QAA
+A5BYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAkoAAAD4QAALbPZGVzYwAAAAAAAAAWSUVDIGh0
+dHA6Ly93d3cuaWVjLmNoAAAAAAAAAAAAAAAWSUVDIGh0dHA6Ly93d3cuaWVjLmNoAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGRlc2MAAAAAAAAALklFQyA2MTk2Ni0yLjEg
+RGVmYXVsdCBSR0IgY29sb3VyIHNwYWNlIC0gc1JHQgAAAAAAAAAAAAAALklFQyA2MTk2Ni0yLjEgRGVm
+YXVsdCBSR0IgY29sb3VyIHNwYWNlIC0gc1JHQgAAAAAAAAAAAAAAAAAAAAAAAAAAAABkZXNjAAAAAAAA
+ACxSZWZlcmVuY2UgVmlld2luZyBDb25kaXRpb24gaW4gSUVDNjE5NjYtMi4xAAAAAAAAAAAAAAAsUmVm
+ZXJlbmNlIFZpZXdpbmcgQ29uZGl0aW9uIGluIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAdmlldwAAAAAAE6T+ABRfLgAQzxQAA+3MAAQTCwADXJ4AAAABWFlaIAAAAAAATAlWAFAAAABX
+H+dtZWFzAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAACjwAAAAJzaWcgAAAAAENSVCBjdXJ2AAAAAAAA
+BAAAAAAFAAoADwAUABkAHgAjACgALQAyADcAOwBAAEUASgBPAFQAWQBeAGMAaABtAHIAdwB8AIEAhgCL
+AJAAlQCaAJ8ApACpAK4AsgC3ALwAwQDGAMsA0ADVANsA4ADlAOsA8AD2APsBAQEHAQ0BEwEZAR8BJQEr
+ATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAeEB6QHyAfoCAwIM
+AhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6wL1AwADCwMWAyEDLQM4
+A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQTBCAELQQ7BEgEVQRjBHEEfgSMBJoEqAS2
+BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFtQXFBdUF5QX2BgYGFgYnBjcGSAZZBmoGewaM
+Bp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+
+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQKagqBCpgKrgrFCtwK8wsLCyILOQtR
+C2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4MpwzADNkM8w0NDSYNQA1aDXQNjg2pDcMN3g34DhMOLg5J
+DmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+WD7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGq
+EckR6BIHEiYSRRJkEoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4
+FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjVGPoZIBlFGWsZkRm3
+Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5q
+HpQevh7pHxMfPh9pH5Qfvx/qIBUgQSBsIJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOU
+I8Ij8CQfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQpBik4
+KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4WLkwugi63Lu4vJC9a
+L5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38zuDPxNCs0ZTSeNNg1EzVNNYc1wjX9
+Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl/Obw5+To2OnQ6sjrvOy07azuqO+g8JzxlPKQ84z0i
+PWE9oT3gPiA+YD6gPuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC90M6Q31DwEQDREdEikTO
+RRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9SsRLDEtTS5pL4kwqTHJMuk0C
+TUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIxUnxSx1MTU19TqlP2VEJUj1TbVShVdVXC
+Vg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pWWqZa9VtFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8P
+X2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjs
+aUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6cZVx8HJLcqZzAXNd
+c7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnnekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5i
+fsJ/I3+Ef+WAR4CogQqBa4HNgjCCkoL0g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+
+imSKyoswi5aL/IxjjMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0
+lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBpoNihR6G2oiailqMG
+o3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1
+sOqxYLHWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY++Cr6E
+vv+/er/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfLNsu2zDXMtc01
+zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls2fHadtr724DcBdyK
+3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbnH+ep6DLovOlG6dDqW+rl63Dr++yG
+7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ86f0NPTC9VD13vZt9vv3ivgZ+Kj5OPnH+lf65/t3/Af8mP0p
+/br+S/7c/23//9IiIyQlWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoyQmJ1pO
+U0ltYWdlUmVwWE5TT2JqZWN00iIjKSpXTlNBcnJheaIpJ9IiIywtXk5TTXV0YWJsZUFycmF5oywpJ9Mv
+MAkxMjNXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSIiM1NldOU0NvbG9yojUn0iIjODlXTlNJ
+bWFnZaI4J18QD05TS2V5ZWRBcmNoaXZlctE8PVRyb290gAEACAARABoAIwAtADIANwBFAEsAVABbAGgA
+bwB3AHkAfgCAAIIAhwCSAJQAlgCYAJ0AoACiAKQApgCoAK0AxADGAMhoGmgfaCpoM2hGaEpoVWheaGNo
+a2huaHNogmiGaI1olWiiaKdoqWiraLBouGi7aMBoyGjLaN1o4GjlAAAAAAAAAgEAAAAAAAAAPgAAAAAA
+AAAAAAAAAAAAaOc
+</mutableData>
+        </image>
+        <image name="Screen Shot 2016-07-03 at 8.09.23 PM.png" width="856" height="460"/>
+        <image name="camera button.png" width="218" height="208"/>
+    </resources>
+</document>
